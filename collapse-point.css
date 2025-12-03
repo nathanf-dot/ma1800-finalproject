@@ -1,0 +1,182 @@
+
+body {
+  font-family: "Segoe UI", Calibri, sans-serif;
+  margin: 50px;
+  line-height: 1.6;
+  color: black;
+  background: linear-gradient(to bottom, #f0f0f0, #d7eaff);
+  background-position: center;
+  /* background: url(images/windows-crash.jpg); */
+  animation: shake 0.15s infinite;
+  /* animation: bgshake 1s infinite ease-in-out; */
+}
+
+h1 {
+  font-size: 3em;
+  color: #111111;
+  text-align: center;
+}
+
+p {
+  max-width: 700px;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #468FEA;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* grid layout */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  animation: collapseDrift 6s infinite ease-in-out alternate;
+}
+
+.tile {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.tile img,
+.tile video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid white;
+}
+
+/* text overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 3px;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tile:hover .overlay {
+  opacity: 1;
+}
+
+
+/* gltich text overlay */
+.collapse-text .overlay p {
+  position: relative;
+  z-index: 3;
+  opacity: 1;
+
+  /* idle state flicker */
+  animation: idleFlicker 3s infinite ease-in-out;
+  transition: 0.15s ease;
+}
+
+/* shake on hover */
+.collapse-text:hover .overlay p {
+  animation: chaosFlicker 0.2s infinite steps(2, end);
+  transform: translate(1px, -1px);
+
+  /* RGB split */
+  text-shadow:
+    2px 0px red,
+    -2px 0px cyan,
+    0px 2px lime;
+  filter: blur(0.4px) contrast(130%);
+}
+
+/* idle flicker */
+@keyframes idleFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.92; }
+}
+
+/* flicker + ghost text */
+@keyframes chaosFlicker {
+  0% {
+    opacity: 1;
+    transform: translate(0,0);
+    text-shadow:
+      0px 0px red,
+      0px 0px cyan;
+  }
+  50% {
+    opacity: 0.75;
+    transform: translate(2px,-2px);
+    text-shadow:
+      3px 1px red,
+      -3px -1px cyan,
+      1px 0 lime;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-1px,1px);
+    text-shadow:
+      -2px 0 red,
+      2px 0 cyan;
+  }
+}
+
+/* glitch text */
+.collapse-text .overlay-text p {
+  position: relative;
+  z-index: 3;
+}
+
+ @keyframes shake {
+   0%   { transform: translate(2px, 2px) rotate(0deg); }
+  20%  { transform: translate(-2px, -3px) rotate(-1deg); }
+  40%  { transform: translate(-3px, 0px) rotate(1deg); }
+  60%  { transform: translate(3px, 2px) rotate(0deg); }
+  80%  { transform: translate(2px, -2px) rotate(1deg); }
+  100% { transform: translate(-2px, 2px) rotate(-1deg); }
+} 
+
+/* @keyframes bgshake {
+    0%   { background-position: translate(1px, 1px) rotate(0deg); }
+  20%  { background-position: translate(-1px, -1px) rotate(-1deg); }
+  40%  { background-position: translate(-1px, 1px) rotate(1deg); }
+  60%  { background-position: translate(1px, 1px) rotate(0deg); }
+  80%  { background-position: translate(1px, -1px) rotate(1deg); }
+  100% { background-position: translate(-1px, 1px) rotate(-1deg); }
+} I wanted to see if I could make the background shake at the same time as the rest of the screen, but i just rendered
+ the whole screen stationary */
+
+/* image slide */
+@keyframes collapseDrift {
+  0% { transform: translateY(0) skewX(0deg); }
+  100% { 
+    transform: translateY(4px) skewX(1.5deg); 
+  }
+}

@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #f0f0f0, #d7eaff);
+  font-family: "Segoe UI", Calibri, sans-serif;
+  color: #222;
+}
+
+.homepage-header {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.homepage-header h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #4b6ea8;
+  margin-top: 10px;
+}
+
+/* Frame for image, to make the bsae image appear as a museum view, or art gallery */
+.homepage-img {
+  width: 70%;
+  margin: 0 auto;
+  border: 15px groove #f0f0f0;
+  padding: 12px;
+  background: #d7eaff;
+}
+
+.homepage-img img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.homepage-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.homepage-hover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.35s ease;
+}
+
+/* Fade the image on hover */
+.homepage-hover:hover img {
+  opacity: 0.2;
+}
+
+/* Overlay text */
+.homepage-overlay {
+  position: absolute;
+  inset: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+
+  /* darken slightly for readability */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.homepage-overlay p {
+  font-size: 1.7rem;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  max-width: 70%;
+  line-height: 1.3;
+}
+
+/* Show overlay on hover */
+.homepage-hover:hover .homepage-overlay {
+  opacity: 1;
+}
+
+/* Museum label (synopsis) */
+.synopsis {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  /* width: 60%;
+  margin: 40px auto;
+  background: #ffffffee;
+  padding: 25px 30px;
+  border-left: 4px solid #4b6ea8;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  line-height: 1.6;
+  font-size: 1.05rem; */
+}
+
+
+.para01 {
+  display: flex;
+  align-items: center;
+  border: 3px solid;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28), 0 10px 30px rgba(0, 0, 0, 0.18);
+  transition: tranform 160ms ease, box-shadow 160ms ease;
+}
+
+.synopsis p {
+  margin-bottom: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: #468FEA;
+}
+
+a:hover {
+  text-decoration: underline;
+}

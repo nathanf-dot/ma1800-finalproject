@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clean Feed</title>
+  <link rel="stylesheet" href="cleanfeed.css">
+</head>
+<body>
+  <h1>Clean Feed</h1>
+
+<!--this grid is to mimic a social media feed, namely instagram.
+I wanted to have the user interact with the the page in a similar vein to that of social media -->  
+ <div class="image-grid">
+
+  <div class="tile icons-tile">
+  <img src="images/messi.webp" alt="">
+  <div class="icons-overlay">
+    <span class="icon">❤️</span> <!-- the use of icons are to again mimic a social media feed -->
+    <span class="icon">💬</span>
+    <div class="hover-count">0</div> <!-- this is a random like counter for aesthetic of the page to match what you would see in social media -->
+  </div>
+</div>
+
+ <div class="tile">
+  <img src="images/booker.png" alt="">
+  <div class="overlay">
+    <p>This page represents the polished, curated state of the feed. Here, athletes and influencers appear in perfect balance — their identities shaped by metrics, angles, and brand aesthetics.</p>
+  </div>
+</div>
+
+  <div class="tile icons-tile">
+  <img src="images/wisdom.png" alt="">
+  <div class="icons-overlay">
+    <span class="icon">❤️</span>
+    <span class="icon">💬</span>
+    <div class="hover-count">0</div>
+  </div>
+</div>
+ 
+   <div class="tile">
+  <img src="images/yatchy.png" alt="">
+  <div class="overlay">
+    <p>In today's attention economy, the line between athletes and influencers is increasingly blurred. These images could belong to almost any profession because visibility itself has become the universal skill. Whether on a pitch, a stage, or a feed, individuals must present themselves as public-facing characters shaped by branding and constant audience expectation.</p>
+  </div>
+</div>
+
+  <div class="tile icons-tile">
+  <img src="images/shohei.jpg" alt="">
+  <div class="icons-overlay">
+    <span class="icon">❤️</span>
+    <span class="icon">💬</span>
+    <div class="hover-count">0</div>
+  </div>
+</div>
+
+  <div class="tile icons-tile">
+  <img src="images/shai01.png" alt="">
+  <div class="icons-overlay">
+    <span class="icon">❤️</span>
+    <span class="icon">💬</span>
+    <div class="hover-count">0</div>
+  </div>
+</div>
+
+  <div class="tile icons-tile">
+  <img src="images/vandijk.png" alt="">
+  <div class="icons-overlay">
+    <span class="icon">❤️</span>
+    <span class="icon">💬</span>
+    <div class="hover-count">0</div>
+  </div>
+</div>
+
+  <div class="tile icons-tile">
+  <img src="images/travis.png" alt="">
+  <div class="icons-overlay">
+    <span class="icon">❤️</span>
+    <span class="icon">💬</span>
+    <div class="hover-count">0</div>
+  </div>
+</div>
+
+   <div class="tile glitch-tile"> <!-- this tile uses the glitch text I use in later pages and accts as a foreshadowing for the breakdown that is to come in the later pages -->
+  <img src="images/chase.png" alt="">
+  <div class="overlay">
+    <p>Yet this polished surface reveals an underlying tension: when the demands of sport and the rhythms of social media collide, the boundaries between authenticity, labour, and spectacle begin to erode. If we are not careful, these worlds converge in ways that intensify pressure, accelerate comparison, and amplify noise.</p>
+  </div>
+</div>
+</div>
+
+<script>
+  document.querySelectorAll('.hover-count').forEach(count => {
+    // random number between 3,000 and 25,000 //
+    const randomNum = Math.floor(Math.random() * (25000 - 3000) + 3000);
+
+    // uses "k" for thousands //
+    let displayNum;
+    if (randomNum >= 1000) {
+      displayNum = (randomNum / 1000).toFixed(1) + "k";
+    } else {
+      displayNum = randomNum;
+    }
+
+    // update the text //
+    count.textContent = displayNum;
+  });
+</script>
+
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="flooded-signals.html">Next: Flooded Signals</a>
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+
+body {
+  font-family: "Segoe UI", Calibri, sans-serif;
+  margin: 50px;
+  line-height: 1.6;
+  background: linear-gradient(to bottom, #f0f0f0, #d7eaff);
+  color: #222222;
+}
+
+h1 {
+  font-size: 3em;
+  color: #111111;
+  text-align: center;
+}
+
+p {
+  max-width: 700px;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #468FEA;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* grid layout */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0; 
+  margin: 0;
+  padding: 0;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1; 
+  object-fit: cover;
+  
+  border: 2px solid white;
+  
+  display: block; 
+  margin: 0;     
+  padding: 0;
+}
+
+.tile {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  overflow: hidden;
+}
+
+.tile img,
+.tile video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; 
+  border: 2px solid white; 
+  background-size: cover;
+  background-position: center;
+}
+
+/* glitch hover effect */
+.glitch-tile {
+  position: relative;
+}
+
+.glitch-tile:hover img,
+.glitch-tile:hover video {
+  animation: glitch 0.25s steps(2, end) infinite;
+  filter: hue-rotate(8deg) contrast(1.1);
+}
+
+@keyframes glitch {
+  0% { transform: translate(0,0); }
+  20% { transform: translate(-2px,1px); }
+  40% { transform: translate(2px,-1px); }
+  60% { transform: translate(-1px,2px); }
+  80% { transform: translate(1px,-2px); }
+  100% { transform: translate(0,0); }
+}
+
+
+.pulse {
+  animation: pulsate 1s infinite alternate;
+}
+
+@keyframes pulsate {
+  from { filter: brightness(50%); }
+  to   { filter: brightness(200%); }
+}
+
+.tv-static {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  background: url("images/heavy_static.png") repeat;
+  opacity: 0.18; 
+  animation: staticShift 0.35s steps(2, end) infinite;
+}
+
+@keyframes staticShift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-2px, 1px) scale(1.02); }
+  100% { transform: translate(1px, -1px) scale(1); }
+}
+
+
+/* Text overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: black;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 3px;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tile:hover .overlay {
+  opacity: 1;
+}
+
+/* Glitch effect for the image */
+.glitch-tile:hover img {
+  opacity: 0.15;
+  animation: glitch 0.4s steps(2, end) infinite;
+}
+
+/* Glitch effect for the text overlay */
+.glitch-tile:hover .overlay p {
+  position: relative;
+  animation: glitchText 0.35s steps(2, end) infinite;
+}
+
+/* Glitch image shake + colour split*/
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-4px, 2px);
+  }
+  40% {
+    transform: translate(3px, -3px);
+    filter: hue-rotate(20deg);
+  }
+  60% {
+    transform: translate(-2px, 1px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(-20deg);
+  }
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* Glitch effect on the text*/
+
+@keyframes glitchText {
+  0% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+  }
+  25% {
+    text-shadow: -2px 0 red, 2px 0 blue;
+  }
+  50% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+  }
+  75% {
+    text-shadow: -2px 0 red, 2px 0 blue;
+  }
+  100% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+  }
+}
