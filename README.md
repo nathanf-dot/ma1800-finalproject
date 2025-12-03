@@ -12,3 +12,4 @@ In terms of extensions to the project, if given more time i would have liked to 
 
 
 In terms of how I found my images, videos and audios, all of the images of athletes, influencers, or celebrities were sourced either with a simple google search or via their Instagram feed. The videos, such as all of the glitch animations used on the "Collapse Point" page, or the notification counter on "Flooded Signals" were sourced on the website pexels, and the video of the New York Knicks fans celebrating was a screen recording of a Youtube video. And the audio I used was downloaded off freesound.org.
+
